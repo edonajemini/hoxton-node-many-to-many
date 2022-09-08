@@ -47,12 +47,12 @@ SELECT * FROM interviews WHERE id = ?;
   const getInterviewersForApplicants = db.prepare(`
   SELECT interviewers.* FROM interviewers
   JOIN interviews ON interviewers.id = interviews.interviewersId
-  WHERE interviews.interviewersId = ?;
+  WHERE interviews.applicantsId = ?;
   `)
   const getApplicantsForInterviewers = db.prepare(`
 SELECT applicants.* FROM applicants
 JOIN interviews ON applicants.id = interviews.applicantsId
-WHERE interviews.applicantsId = ?;
+WHERE interviews.interviewersId = ?;
 `)
   
 
